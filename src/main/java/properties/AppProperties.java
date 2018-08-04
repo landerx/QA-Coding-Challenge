@@ -9,7 +9,9 @@ import java.util.Properties;
 @Slf4j
 public enum AppProperties {
 
-    FIRST_TASK_BASE_URL("task.one.baseUrl");
+    FIRST_TASK_BASE_URL("task.one.baseUrl"),
+    SECOND_TASK_BASE_URL("task.two.baseUrl"),
+    WEB_DRIVER_LOCATION("webdriver.location");
 
     private String key;
     private static final String PROPERTIES_FILE_NAME = "application.properties";

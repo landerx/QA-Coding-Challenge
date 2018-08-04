@@ -50,6 +50,9 @@ public class ExternalAndPortableDiscsPage extends Page {
     @FindBy(css = "select[data-value='m']")
     private WebElement sortSelectWebElement;
 
+    @FindBy(xpath = "//*[@id='opbox-listing']/div[@data-reactroot]")
+    private WebElement offersContainer;
+
     public ExternalAndPortableDiscsPage(WebDriver webDriver) {
         super(webDriver);
     }
@@ -67,6 +70,7 @@ public class ExternalAndPortableDiscsPage extends Page {
         WaitForElement.waitUntilElementIsClickable(webDriver, minGbCapacityInput);
         minGbCapacityInput.sendKeys(String.valueOf(value));
         minGbCapacityInput.sendKeys(Keys.RETURN);
+        WaitForElement.waitUntilElementClassAttributeIsEmpty(webDriver, offersContainer);
         return new ExternalAndPortableDiscsPage(webDriver);
     }
 
@@ -75,6 +79,7 @@ public class ExternalAndPortableDiscsPage extends Page {
         WaitForElement.waitUntilElementIsClickable(webDriver, maxGbCapacityInput);
         maxGbCapacityInput.sendKeys(String.valueOf(value));
         maxGbCapacityInput.sendKeys(Keys.RETURN);
+        WaitForElement.waitUntilElementClassAttributeIsEmpty(webDriver, offersContainer);
         return new ExternalAndPortableDiscsPage(webDriver);
     }
 
@@ -83,6 +88,7 @@ public class ExternalAndPortableDiscsPage extends Page {
         Select sortSelect = new Select(sortSelectWebElement);
         WaitForElement.waitUntilSelectOptionsPopulated(webDriver, sortSelect);
         sortSelect.selectByVisibleText(DESCENDING_BY_PRICE_OPTION);
+        WaitForElement.waitUntilElementClassAttributeIsEmpty(webDriver, offersContainer);
         return this;
     }
 
@@ -136,9 +142,6 @@ public class ExternalAndPortableDiscsPage extends Page {
     private void assertThatOffersAreBetweenGbValues(List<WebElement> webElements, Integer min, Integer max) {
         webElements.forEach(webElement -> {
             WaitForElement.waitUntilElementIsVisible(webDriver, webElement);
-            if(webElement.getText().equals("320")){
-                log.error("320");
-            }
             assertThat(Integer.parseInt(webElement.getText()),
                     is(both(greaterThanOrEqualTo(min))
                             .and(lessThanOrEqualTo(max))));

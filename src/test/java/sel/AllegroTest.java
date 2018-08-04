@@ -20,7 +20,7 @@ public class AllegroTest extends TestBase {
     }
 
     @Test
-    public void asUserFindExternalHardDrivesBetween500And1000GbSortedDescendByPrice() {
+    public void asUserFindExternalHardDrivesAndPortableDiscsBetween500And1000GbSortedDescendByPrice() {
         //given
         int minCapacityInGb = 500;
         int maxCapacityInGb = 1000;

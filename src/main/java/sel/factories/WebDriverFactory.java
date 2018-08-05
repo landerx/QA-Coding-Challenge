@@ -30,7 +30,7 @@ public class WebDriverFactory {
         ClassLoader classLoader = getClass().getClassLoader();
         URL resource = classLoader.getResource(WEB_DRIVER_RESOURCE_PATH);
         if(Objects.isNull(resource)){
-            throw new RuntimeException("Web driver isn't founded in " + WEB_DRIVER_RESOURCE_PATH);
+            throw new RuntimeException("Web driver isn't found in " + WEB_DRIVER_RESOURCE_PATH);
         }
         return resource.getPath();
     }

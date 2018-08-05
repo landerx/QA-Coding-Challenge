@@ -10,8 +10,7 @@ import java.util.Properties;
 public enum AppProperties {
 
     FIRST_TASK_BASE_URL("task.one.baseUrl"),
-    SECOND_TASK_BASE_URL("task.two.baseUrl"),
-    WEB_DRIVER_LOCATION("webdriver.location");
+    SECOND_TASK_BASE_URL("task.two.baseUrl");
 
     private String key;
     private static final String PROPERTIES_FILE_NAME = "application.properties";

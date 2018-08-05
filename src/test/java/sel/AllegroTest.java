@@ -26,7 +26,7 @@ public class AllegroTest extends TestBase {
         int maxCapacityInGb = 1000;
 
         //when
-        dearUserPopupPage.clickOnXButton()
+        dearUserPopupPage.clickOnCloseButton()
                 .clickOnCategoriesLink()
                 .clickOnElectronicsLink()
                 .clickOnComputersLink()

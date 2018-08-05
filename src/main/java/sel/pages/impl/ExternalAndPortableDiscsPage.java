@@ -95,7 +95,6 @@ public class ExternalAndPortableDiscsPage extends Page {
     public ExternalAndPortableDiscsPage assertThatSortDescendingByPriceIsSelected() {
         log.info("Assert that sorting descend by price is selected");
         log.info(webDriver.getCurrentUrl());
-        log.info(webDriver.getCurrentUrl());
         Select sortSelect = new Select(sortSelectWebElement);
         WaitForElement.waitUntilSelectOptionsPopulated(webDriver, sortSelect);
         assertThat(sortSelect.getFirstSelectedOption().getText(), is(DESCENDING_BY_PRICE_OPTION));

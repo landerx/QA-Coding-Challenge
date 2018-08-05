@@ -17,8 +17,8 @@ public class DearUserPopUpPage extends Page {
         super(webDriver);
     }
 
-    public HomePage clickOnXButton() {
-        log.info("Click on x button to accept consent");
+    public HomePage clickOnCloseButton() {
+        log.info("Click on close button to accept consent");
         WaitForElement.waitUntilElementIsClickable(webDriver, closePopUpButton);
         closePopUpButton.click();
         return new HomePage(webDriver);

@@ -1,13 +1,14 @@
 package rest.base;
 
-import org.junit.BeforeClass;
-import rest.configuration.RestAssuredConfiguration;
+import lombok.extern.slf4j.Slf4j;
+import org.junit.ClassRule;
+import rest.rules.SuiteRule;
 
+@Slf4j
 public class TestBase {
 
-    @BeforeClass
-    public static void restAssuredConfiguration() {
-        RestAssuredConfiguration.RestAssuredSetup();
-    }
+    @ClassRule
+    public static SuiteRule rule = SuiteRule.INSTANCE;
+    //It emulates @BeforeSuite from TestNG
 
 }
